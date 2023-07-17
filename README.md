@@ -2,20 +2,19 @@
 
 Dashboard to manage configuration for wassfast runs in the stereowave server, as well as to analyze the software's output files.
 
-### powershell:
-type:
+Called via command line.
+
+## To initialize flask capabilities:
+### powershell
 ``` 
 $env:FLASK_APP = "run"
 ```
-
-### bash:
-type:
+### bash
 ``` 
 export FLASK_APP=run
 ```
 
 ### To run:
-type
 ```
 flask run
 ```
