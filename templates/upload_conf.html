@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Configuration Files{% endblock %}
+
+{% block sidebar %}
+<div class="sidebar">
+    <h4>Server Config Files</h4>
+    <div id="serverfiles">
+    {% block serverfiles %}
+    <ul>
+        {% if filenames %}
+        {% for file in filenames %}
+        <li style="float: none;">
+            <p>{{file}}</p>
+        </li>
+        {% endfor %}
+        {% else %}
+        <li style="float: none;">
+            <p>No Files Detected</p>
+        </li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h3>Upload Configuration Files</h3>
+<form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+</form>
+<p>Your file will appear in the left sidebar once successfully uploaded.</p>
+<a href="{{ url_for('config') }}"><p><input type = "submit" value = "Return to Config" /></p></a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<div class="sidebar">
+    <ul>
+        <li>
+            <p>Server Files</p>
+            <div id="serverfiles">
+            {% block serverfiles %}{% endblock %}
+            </div>
+        </li>
+        </ul>
+        <li>
+            <p>Local Files</p>
+            <div id="localfiles">
+            {% block localfiles %}{% endblock %}
+            </div>
+        </li>
+    </ul>
+</div>
+{% endblock %}

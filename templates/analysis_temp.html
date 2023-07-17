@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block sidebar %}
+<div class="sidebar">
+    <h4>Options</h4>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="report" class="report">
+    <br>
+    <h2 class="report" style="display:inline;">WASSfast sea state analysis</h2>
+    <img src="data:image/jpg;base64,{{framedata}}" style="display:inline;width:30%;vertical-align:text-top;float:right;margin-right:10%" alt="Frame" />
+    <br>
+    <p class="report">{{ncfile}}</p>
+    <h4 class="report" style="display: inline;">Date:</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{date}}
+    </p>
+    <br><br>
+    <h4 class="report" style="display: inline;">Time:</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{time}}
+    </p>
+    <br><br>
+    <h4 class="report" style="display: inline;">Location:</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{location}}
+    </p>
+    <br><br>
+    <h4 class="report" style="display: inline;">Duration:</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{duration}}
+    </p>
+    <br><br>
+    <h4 class="report" style="display: inline;">Sample rate:</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{fps}} Hz
+    </p>
+    <br><br>
+    <h4 class="report" style="display: inline;">Hs:</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{hs}}
+    </p>
+    <br><br>
+    <h4 class="report" style="display: inline;">Hm0:</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{hm0}}
+    </p>
+    <br><br>
+    <h4 class="report" style="display: inline;">Tm01:</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{Tm01}}
+    </p>
+    <br><br>
+    <h4 class="report" style="display: inline;">Peak frequency (Hz):</h4>
+    <p style="display: inline; vertical-align:text-bottom;">
+        {{pp}}
+    </p>
+    <br><br><br>
+    <h4 class="report" style="float:left;">Timeserie:</h4>
+    <br><br>
+    <img src="data:image/jpg;base64,{{timeseriedata}}" style="float:left;width:40%;margin-left:0%;" alt="Timeserie" />
+    <img src="data:image/jpg;base64,{{spectrumdata}}" style="display:inline;float:auto;width:25%;vertical-align:bottom" alt="Spectrum" />
+    <br><br><br>
+    <h4 class="report" style="float:left;">Directional spectrum:</h4>
+    <br>
+    <img src="data:image/jpg;base64,{{dirspectrumdata1}}" style="display:inline;float:left;width:45%;" alt="Directional spectrum 1" />
+    <img src="data:image/jpg;base64,{{dirspectrumdata2}}" style="display:inline;float:auto;width:45%;" alt="Directional spectrum 2" />
+    <br>
+    <img src="data:image/png;base64,{{dirspectrumdata3}}" style="display:inline;float:left;width:45%;" alt="Directional spectrum 3" />
+    <img src="data:image/png;base64,{{dirspectrumdata4}}" style="display:inline;float:auto;width:45%;" alt="Directional spectrum 4" />
+    <br>
+    <img src="data:image/jpg;base64,{{dirspectrumdata5}}" style="display:inline;float:left;width:45%;" alt="Directional spectrum 5" />
+    <img src="data:image/jpg;base64,{{dirspectrumdata6}}" style="display:inline;float:auto;width:45%;" alt="Directional spectrum 6" />
+    <br>
+    <img src="data:image/jpg;base64,{{dirspectrumdata7}}" style="display:inline;float:left;width:45%;" alt="Directional spectrum 7" />
+    <img src="data:image/jpg;base64,{{dirspectrumdata8}}" style="display:inline;float:auto;width:45%;" alt="Directional spectrum 8" />
+    <br>
+    <img src="data:image/jpg;base64,{{dirspectrumdata9}}" style="display:inline;float:left;width:45%;" alt="Directional spectrum 9" />
+    <img src="data:image/jpg;base64,{{dirspectrumdata10}}" style="display:inline;float:auto;width:45%;" alt="Directional spectrum 10" />
+    <br><br><br>
+    <h4 class="report">Metadata:</h4>
+    {% for ln in meta %}
+    <p class="report" style="margin-left: 5%;">{{ln}}</p>
+    {% endfor %}
+    <br>
+</div>
+{% endblock %}

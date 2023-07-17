@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Analyze NetCDF File(s){% endblock %}
+
+{% block sidebar %}
+<div class="sidebar">
+    <h4>Server NC Files</h4>
+    <div id="serverfiles">
+    {% block serverfiles %}
+    <ul>
+        {% if filenames %}
+        {% for file in filenames %}
+        <li style="float: none;">
+            <p>{{file}}</p>
+        </li>
+        {% endfor %}
+        {% else %}
+        <li style="float: none;">
+            <p>No Files Detected</p>
+        </li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h3>Analyze NetCDF File(s)</h3>
+<p>If you do not see your NetCDF in the file list on the left, please either upload the files by clicking on the button below, or alternatively add them manually to the app's '/uploads/analysis' folder then refresh the page.</p>
+<a href="{{ url_for('upload_analysis_file') }}"><p><input type = "submit" value = "Upload Files" /></p></a>
+<div id="options">
+    <p>If your file is available, proceed to analyse it below.</p>
+    <a href="{{ url_for('analyse_netcdf') }}"><p><input type = "submit" value = "Analyze NetCDF" /></p></a>
+</div>
+{% endblock %}

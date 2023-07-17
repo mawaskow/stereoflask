@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Analyse NetCDF File{% endblock %}
+
+{% block sidebar %}
+<div class="sidebar">
+    <h4>Server NetCDF Files</h4>
+    <div id="serverfiles">
+    {% block serverfiles %}
+    <ul>
+        {% if fname %}
+        <li style="float: none;">
+            <p>{{fname}}</p>
+        </li>
+        {% else %}
+        <li style="float: none;">
+            <p>No .nc Files Detected</p>
+        </li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h3>Analyse NetCDF</h3>
+<p>Choose method.</p>
+<form method=post enctype=multipart/form-data>
+    <input type=submit value=Standard>
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "sidebar.html" %}
+
+<!-- https://stackoverflow.com/questions/23718236/python-flask-browsing-through-directory-with-files -->
+
+{% block sidebar%}
+
+{% block serverfiles%}
+{% endblock %}
+
+{% block localfiles %}
+<ul>
+    {% for file in filenames %}
+    <li style="float: none;">
+        <a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">
+            {{ (request.path + '/' if request.path != '/' else '') + file }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+{% endblock %}

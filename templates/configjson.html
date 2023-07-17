@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Modify config.json{% endblock %}
+
+{% block sidebar %}
+<div class="sidebar">
+    <h4>Active Server Files</h4>
+    <div id="serverfiles">
+    {% block serverfiles %}
+    <ul>
+        {% if found %}
+        <li style="float: none;"><p>config.json</p></li>
+        {% else %}<li style="float: none;"><p>config.json not found</p>
+        </li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<h3>config.json</h3>
+{% if found %}
+<p>Current settings are populated into the below form. Change values as needed then press submit to update.</p>
+<form method=post enctype=multipart/form-data>
+    {{ form.csrf_token }}
+    <ul class="optns">
+        <li>{{form.proc_batch.label}}{{form.proc_batch}}</li>
+    {% if form.proc_batch.errors %}
+        <ul class="errors">
+          {% for error in form.name.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <li>{{form.stream_batch.label}}{{form.stream_batch}}</li>
+        <li>{{form.flow_method.label}}{{form.flow_method}}</li>
+        <li>{{form.flow_winsize.label}}{{form.flow_winsize}}</li>
+        <li>{{form.sparsematch_quality.label}}{{form.sparsematch_quality}}</li>
+        <li>{{form.pointsred_maxdist.label}}{{form.pointsred_maxdist}}</li>
+        <li>{{form.pointsred_winsize.label}}{{form.pointsred_winsize}}</li>
+        <li>{{ form.submit }}</li>
+    </ul>
+</form>
+{% if submitted %}
+<p>config.json successfully updated!</p>
+{% endif %}
+{% else %}
+<p>File Not Found.</p>
+<a href="{{ url_for('upload_conf_file') }}"><p><input type = "submit" value = "Upload File" /></p></a>
+{% endif %}
+
+{% endblock %}

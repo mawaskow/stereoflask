@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Configure Wassfast Run{% endblock %}
+
+{% block sidebar %}
+<div class="sidebar">
+    <h4>Server Config Files</h4>
+    <div id="serverfiles">
+    {% block serverfiles %}
+    <ul>
+        {% if filenames %}
+        {% for file in filenames %}
+        <li style="float: none;">
+            <p>{{file}}</p>
+        </li>
+        {% endfor %}
+        {% else %}
+        <li style="float: none;">
+            <p>No Files Detected</p>
+        </li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h3>Configure Wassfast Run</h3>
+<p>If you do not see your 'config.json' in the file list on the left, please either upload the file by clicking on the button below, or alternatively add it manually to the app's '/uploads/config' folder then refresh the page.</p>
+<a href="{{ url_for('upload_conf_file') }}"><p><input type = "submit" value = "Upload Files" /></p></a>
+
+<div id="options">
+    <p>If your files are available, proceed to modify your files below.</p>
+    <ul>
+        <li style="float: left;"><a href="{{ url_for('engage_jsonconf') }}"><p><input type = "submit" value = "config.json" /></p></a></li>
+    </ul>
+</div>
+{% endblock %}
