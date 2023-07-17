@@ -18,3 +18,11 @@ export FLASK_APP=run
 ```
 flask run
 ```
+
+#### Sample view of home
+
+![Screenshot 2023-07-17 155358](https://github.com/mawaskow/stereoflask/assets/61253606/f9814493-cc83-4ceb-9bbc-ff0f4719c315)
+
+#### Toggling config.json values
+
+![Screenshot 2023-07-17 155429](https://github.com/mawaskow/stereoflask/assets/61253606/85009695-8ad8-48cd-862b-61b208ca0709)
